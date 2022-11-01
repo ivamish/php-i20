@@ -1,9 +1,8 @@
 <?php
-    require_once "config/config.php";
+    require_once "include/header.php";
 
-//    $component = \vendor\components\ComponentFactory::create('category');
-//
-//    $component->render();
 
     $route = new \vendor\Router();
     $route->run();
+
+    require_once "include/footer.php";

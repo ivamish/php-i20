@@ -20,20 +20,17 @@ class Router
     {
         foreach ($this->routes as $page => $get) {
 
-            if ($page == $_SERVER["PHP_SELF"]) {
+            if ($page === $_SERVER["PHP_SELF"]) {
 
                 foreach ($get as $key => $component) {
-                    if(key_exists($key, $_GET) || ($key == "" && empty($_GET))) {
+                    if(isset($_GET[$key]) || $key == "") {
                         $this->component = $component;
                         return true;
                     }
                 }
-
-                return false;
             }
-
-            return false;
         }
+        return false;
     }
 
     public function run() : void
